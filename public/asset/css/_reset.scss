@@ -1,0 +1,32 @@
+@import '_variables.scss';
+
+//? -------------------- RESETS -------------------- //
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    line-height: 1.6rem;
+    min-height: 100vh;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  button {
+    outline: transparent;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }

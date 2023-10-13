@@ -1,0 +1,48 @@
+@import '_font.scss';
+//& -------------------- SCSS VARIABLES -------------------- //
+
+//^ ---------COLORS--------- //
+//todo-- DEFAULTS -- //
+$default-white: #F8F8F8;
+$default-black : #232126 ;
+$default-grey: #7F838B ;
+
+//todo-- BACKGROUND -- //
+$main-background : #F4E3DD ;
+$main-background-darker1: #F0D9D3;
+$main-background-darker2: #ECCFC9;
+$main-background-darker3: #E8C5BF;
+
+//todo-- PRIMARY -- //
+$main-primary: #653E2F;
+$main-primary-lighter1: #735145;
+$main-primary-lighter2: #816455;
+$main-primary-lighter3: #8F7765;
+$main-primary-darker1: #5B3629;
+$main-primary-darker2: #512E23;
+$main-primary-darker3: #47261D;
+
+//todo-- SECONDARY -- //
+$main-secondary: #F0DAD1;
+$main-secondary-darker1: #ECD1C9;
+$main-secondary-darker2: #E8C7C1;
+$main-secondary-darker3: #E4BDB9;
+
+//todo-- ACCENT -- //
+$main-accent: #B15F3E;
+$main-accent-lighter1: #B9704E;
+$main-accent-lighter2: #C1815E;
+$main-accent-lighter3: #C9926E;
+$main-accent-darker1: #A65536;
+$main-accent-darker2: #9B4B2E;
+$main-accent-darker3: #904126;
+
+
+//* --------- FONT --------- //
+
+$logo-font: 'RollerCoaster';
+
+//~ ---------STYLES--------- //
+
+$radius5: 5px;
+$radius15: 15px;

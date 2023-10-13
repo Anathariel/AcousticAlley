@@ -1,88 +1,70 @@
-//& -------------------- SCSS VARIABLES -------------------- //
-
-//^ ---------COLORS--------- //
-//todo-- DEFAULTS -- //
-$default-white: #F8F8F8;
-$default-black : #232126 ;
-$default-grey: #7F838B ;
-
-//todo-- BACKGROUND -- //
-$main-background : #F4E3DD ;
-$main-background-darker1: #F0D9D3;
-$main-background-darker2: #ECCFC9;
-$main-background-darker3: #E8C5BF;
-
-//todo-- PRIMARY -- //
-$main-primary: #653E2F;
-$main-primary-lighter1: #735145;
-$main-primary-lighter2: #816455;
-$main-primary-lighter3: #8F7765;
-$main-primary-darker1: #5B3629;
-$main-primary-darker2: #512E23;
-$main-primary-darker3: #47261D;
-
-//todo-- SECONDARY -- //
-$main-secondary: #F0DAD1;
-$main-secondary-darker1: #ECD1C9;
-$main-secondary-darker2: #E8C7C1;
-$main-secondary-darker3: #E4BDB9;
-
-//todo-- ACCENT -- //
-$main-accent: #B15F3E;
-$main-accent-lighter1: #B9704E;
-$main-accent-lighter2: #C1815E;
-$main-accent-lighter3: #C9926E;
-$main-accent-darker1: #A65536;
-$main-accent-darker2: #9B4B2E;
-$main-accent-darker3: #904126;
-
-
-//* --------- FONT --------- //
-
-//~ ---------STYLES--------- //
-
-//? -------------------- RESETS -------------------- //
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    line-height: 1.6rem;
-    min-height: 100vh;
-}
-
-img {
-    display: inline-block;
-    max-width: 100%;
-  }
-
-  button {
-    outline: transparent;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
+@import '_variables.scss';
+@import '_reset.scss';
+@import '_font.scss';
 
 //& -------------------- STYLING -------------------- //
 //~ ------------PAGE NAME------------ //
 //? -------- ELEMENT PAGE -------- //
-header {
-    z-index: 9;
-    position: sticky;
-    top: 0;
-    height: 100px;
-    width: 100%;
-    background-color: $default-black;
+.header {
+  z-index: 9;
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  height: 100px;
+  width: 100%;
+  background-color: $default-black;
+
+  &__figure-logo {
+    // Styles for the logo figure
+    // ...
+
+    &-img {
+      // Styles for the logo image
+      // ...
+    }
+  }
+
+  &__nav-menu {
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+    &-list {
+      // Styles for the navigation list
+      // ...
+
+      &-item {
+        // Styles for the navigation items
+        // ...
+
+        &-link {
+          // Styles for the navigation links
+          // ...
+        }
+      }
+    }
+  }
+
+  &__icon-menu {
+    // Styles for the icon menu
+    // ...
+
+    &-link {
+      // Styles for the icon links
+      // ...
+
+      &-img {
+        // Styles for the icon images
+        // ...
+      }
+    }
+  }
 }
+
 footer {
     margin-top: auto;
     height: 150px;

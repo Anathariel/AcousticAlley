@@ -1,3 +1,251 @@
+@font-face {
+  font-family: "RollerCoaster";
+  src: url(../fonts/RollerCoaster.ttf);
+}
+@font-face {
+  font-family: "LoraBold";
+  src: url(../fonts/Lora/Lora-Bold.ttf);
+}
+@font-face {
+  font-family: "LoraBoldI";
+  src: url(../fonts/Lora/Lora-BoldItalic.ttf);
+}
+@font-face {
+  font-family: "LoraItalicVar";
+  src: url(../fonts/Lora/Lora-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "LoraItalic";
+  src: url(../fonts/Lora/Lora-Italic.ttf);
+}
+@font-face {
+  font-family: "LoraMedium";
+  src: url(../fonts/Lora/Lora-Medium.ttf);
+}
+@font-face {
+  font-family: "LoraMediumI";
+  src: url(../fonts/Lora/Lora-MediumItalic.ttf);
+}
+@font-face {
+  font-family: "Lora";
+  src: url(../fonts/Lora/Lora-Regular.ttf);
+}
+@font-face {
+  font-family: "LoraSemiBold";
+  src: url(../fonts/Lora/Lora-SemiBold.ttf);
+}
+@font-face {
+  font-family: "LoraSemiBoldI";
+  src: url(../fonts/Lora/Lora-SemiBoldItalic.ttf);
+}
+@font-face {
+  font-family: "LoraVar";
+  src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "MonserratBlack";
+  src: url(../fonts/Montserrat/Montserrat-Black.ttf);
+}
+@font-face {
+  font-family: "MonserratBlackI";
+  src: url(../fonts/Montserrat/Montserrat-BlackItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratBold";
+  src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+  font-family: "MonserratBoldI";
+  src: url(../fonts/Montserrat/Montserrat-BoldItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratExBold";
+  src: url(../fonts/Montserrat/Montserrat-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "MonserratExBoldI";
+  src: url(../fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratExLight";
+  src: url(../fonts/Montserrat/Montserrat-ExtraLight.ttf);
+}
+@font-face {
+  font-family: "MonserratExLightI";
+  src: url(../fonts/Montserrat/Montserrat-ExtraLightItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratItalicVar";
+  src: url(../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "MonserratItalic";
+  src: url(../fonts/Montserrat/Montserrat-Italic.ttf);
+}
+@font-face {
+  font-family: "MonserratLight";
+  src: url(../fonts/Montserrat/Montserrat-Light.ttf);
+}
+@font-face {
+  font-family: "MonserratLightI";
+  src: url(../fonts/Montserrat/Montserrat-LightItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratMedium";
+  src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
+}
+@font-face {
+  font-family: "MonserratMediumI";
+  src: url(../fonts/Montserrat/Montserrat-MediumItalic.ttf);
+}
+@font-face {
+  font-family: "Monserrat";
+  src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: "MonserratSemiBold";
+  src: url(../fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: "MonserratSemiBoldI";
+  src: url(../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratThin";
+  src: url(../fonts/Montserrat/Montserrat-Thin.ttf);
+}
+@font-face {
+  font-family: "MonserratThinI";
+  src: url(../fonts/Montserrat/Montserrat-ThinItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratVar";
+  src: url(../fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "RollerCoaster";
+  src: url(../fonts/RollerCoaster.ttf);
+}
+@font-face {
+  font-family: "LoraBold";
+  src: url(../fonts/Lora/Lora-Bold.ttf);
+}
+@font-face {
+  font-family: "LoraBoldI";
+  src: url(../fonts/Lora/Lora-BoldItalic.ttf);
+}
+@font-face {
+  font-family: "LoraItalicVar";
+  src: url(../fonts/Lora/Lora-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "LoraItalic";
+  src: url(../fonts/Lora/Lora-Italic.ttf);
+}
+@font-face {
+  font-family: "LoraMedium";
+  src: url(../fonts/Lora/Lora-Medium.ttf);
+}
+@font-face {
+  font-family: "LoraMediumI";
+  src: url(../fonts/Lora/Lora-MediumItalic.ttf);
+}
+@font-face {
+  font-family: "Lora";
+  src: url(../fonts/Lora/Lora-Regular.ttf);
+}
+@font-face {
+  font-family: "LoraSemiBold";
+  src: url(../fonts/Lora/Lora-SemiBold.ttf);
+}
+@font-face {
+  font-family: "LoraSemiBoldI";
+  src: url(../fonts/Lora/Lora-SemiBoldItalic.ttf);
+}
+@font-face {
+  font-family: "LoraVar";
+  src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "MonserratBlack";
+  src: url(../fonts/Montserrat/Montserrat-Black.ttf);
+}
+@font-face {
+  font-family: "MonserratBlackI";
+  src: url(../fonts/Montserrat/Montserrat-BlackItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratBold";
+  src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+  font-family: "MonserratBoldI";
+  src: url(../fonts/Montserrat/Montserrat-BoldItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratExBold";
+  src: url(../fonts/Montserrat/Montserrat-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "MonserratExBoldI";
+  src: url(../fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratExLight";
+  src: url(../fonts/Montserrat/Montserrat-ExtraLight.ttf);
+}
+@font-face {
+  font-family: "MonserratExLightI";
+  src: url(../fonts/Montserrat/Montserrat-ExtraLightItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratItalicVar";
+  src: url(../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "MonserratItalic";
+  src: url(../fonts/Montserrat/Montserrat-Italic.ttf);
+}
+@font-face {
+  font-family: "MonserratLight";
+  src: url(../fonts/Montserrat/Montserrat-Light.ttf);
+}
+@font-face {
+  font-family: "MonserratLightI";
+  src: url(../fonts/Montserrat/Montserrat-LightItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratMedium";
+  src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
+}
+@font-face {
+  font-family: "MonserratMediumI";
+  src: url(../fonts/Montserrat/Montserrat-MediumItalic.ttf);
+}
+@font-face {
+  font-family: "Monserrat";
+  src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: "MonserratSemiBold";
+  src: url(../fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: "MonserratSemiBoldI";
+  src: url(../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratThin";
+  src: url(../fonts/Montserrat/Montserrat-Thin.ttf);
+}
+@font-face {
+  font-family: "MonserratThinI";
+  src: url(../fonts/Montserrat/Montserrat-ThinItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratVar";
+  src: url(../fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
 *,
 *::before,
 *::after {
@@ -28,15 +276,148 @@ button {
   cursor: pointer;
 }
 
-header {
+@font-face {
+  font-family: "RollerCoaster";
+  src: url(../fonts/RollerCoaster.ttf);
+}
+@font-face {
+  font-family: "LoraBold";
+  src: url(../fonts/Lora/Lora-Bold.ttf);
+}
+@font-face {
+  font-family: "LoraBoldI";
+  src: url(../fonts/Lora/Lora-BoldItalic.ttf);
+}
+@font-face {
+  font-family: "LoraItalicVar";
+  src: url(../fonts/Lora/Lora-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "LoraItalic";
+  src: url(../fonts/Lora/Lora-Italic.ttf);
+}
+@font-face {
+  font-family: "LoraMedium";
+  src: url(../fonts/Lora/Lora-Medium.ttf);
+}
+@font-face {
+  font-family: "LoraMediumI";
+  src: url(../fonts/Lora/Lora-MediumItalic.ttf);
+}
+@font-face {
+  font-family: "Lora";
+  src: url(../fonts/Lora/Lora-Regular.ttf);
+}
+@font-face {
+  font-family: "LoraSemiBold";
+  src: url(../fonts/Lora/Lora-SemiBold.ttf);
+}
+@font-face {
+  font-family: "LoraSemiBoldI";
+  src: url(../fonts/Lora/Lora-SemiBoldItalic.ttf);
+}
+@font-face {
+  font-family: "LoraVar";
+  src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "MonserratBlack";
+  src: url(../fonts/Montserrat/Montserrat-Black.ttf);
+}
+@font-face {
+  font-family: "MonserratBlackI";
+  src: url(../fonts/Montserrat/Montserrat-BlackItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratBold";
+  src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+  font-family: "MonserratBoldI";
+  src: url(../fonts/Montserrat/Montserrat-BoldItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratExBold";
+  src: url(../fonts/Montserrat/Montserrat-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "MonserratExBoldI";
+  src: url(../fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratExLight";
+  src: url(../fonts/Montserrat/Montserrat-ExtraLight.ttf);
+}
+@font-face {
+  font-family: "MonserratExLightI";
+  src: url(../fonts/Montserrat/Montserrat-ExtraLightItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratItalicVar";
+  src: url(../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "MonserratItalic";
+  src: url(../fonts/Montserrat/Montserrat-Italic.ttf);
+}
+@font-face {
+  font-family: "MonserratLight";
+  src: url(../fonts/Montserrat/Montserrat-Light.ttf);
+}
+@font-face {
+  font-family: "MonserratLightI";
+  src: url(../fonts/Montserrat/Montserrat-LightItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratMedium";
+  src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
+}
+@font-face {
+  font-family: "MonserratMediumI";
+  src: url(../fonts/Montserrat/Montserrat-MediumItalic.ttf);
+}
+@font-face {
+  font-family: "Monserrat";
+  src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: "MonserratSemiBold";
+  src: url(../fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: "MonserratSemiBoldI";
+  src: url(../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratThin";
+  src: url(../fonts/Montserrat/Montserrat-Thin.ttf);
+}
+@font-face {
+  font-family: "MonserratThinI";
+  src: url(../fonts/Montserrat/Montserrat-ThinItalic.ttf);
+}
+@font-face {
+  font-family: "MonserratVar";
+  src: url(../fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+.header {
   z-index: 9;
   position: sticky;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   top: 0;
   height: 100px;
   width: 100%;
   background-color: #232126;
 }
-
+.header__nav-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 footer {
   margin-top: auto;
   height: 150px;
