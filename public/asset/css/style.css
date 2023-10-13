@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  line-height: 1.6rem;
+  min-height: 100vh;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+button {
+  outline: transparent;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+header {
+  z-index: 9;
+  position: sticky;
+  top: 0;
+  height: 100px;
+  width: 100%;
+  background-color: #232126;
+}
+
+footer {
+  margin-top: auto;
+  height: 150px;
+  width: 100%;
+  background-color: #232126;
+}/*# sourceMappingURL=style.css.map */
