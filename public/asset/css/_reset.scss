@@ -13,10 +13,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     overflow-x: hidden;
     scroll-behavior: smooth;
     line-height: 1.6rem;
     min-height: 100vh;
+    background-color: $main-background;
 }
 
 img {
@@ -29,4 +32,10 @@ img {
     border: none;
     background-color: transparent;
     cursor: pointer;
+  }
+
+  li, a, p {
+    text-decoration: none;
+    list-style: none;
+    color: $default-white;
   }

@@ -3,71 +3,79 @@
 @import '_font.scss';
 
 //& -------------------- STYLING -------------------- //
-//~ ------------PAGE NAME------------ //
-//? -------- ELEMENT PAGE -------- //
+//~ ------------HEADER & FOOTER------------ //
+//? -------- HEADER -------- //
 .header {
   z-index: 9;
   position: sticky;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   top: 0;
   height: 100px;
   width: 100%;
+  padding: 10px 35px;
   background-color: $default-black;
 
-  &__figure-logo {
-    // Styles for the logo figure
-    // ...
-
-    &-img {
-      // Styles for the logo image
-      // ...
-    }
-  }
-
   &__nav-menu {
-    display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 
-    &-list {
-      // Styles for the navigation list
-      // ...
+    .header__nav-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
 
-      &-item {
+      .header__nav-item {
         // Styles for the navigation items
         // ...
 
-        &-link {
-          // Styles for the navigation links
-          // ...
+        .header__nav-link {
+          font-family: 'Roller Coaster';
+          font-size: 1.5rem;
+          &:hover{
+            text-decoration: underline;
+          }
         }
       }
     }
   }
 
   &__icon-menu {
-    // Styles for the icon menu
-    // ...
-
-    &-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    .header__icon-link {
       // Styles for the icon links
       // ...
 
-      &-img {
-        // Styles for the icon images
-        // ...
+      .header__icon-img {
+        align-self: center;
+        width: 40px;
+        height: 40px;
+
+        &:hover{
+          transform: scale(1.2);
+        }
       }
     }
   }
 }
 
+//? -------- FOOTER -------- //
 footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     margin-top: auto;
-    height: 150px;
+    height: 100px;
     width: 100%;
     background-color: $default-black;
 }
+
+//~ ------------ HOMEPAGE ------------ //
+//? -------- HERO -------- //
+

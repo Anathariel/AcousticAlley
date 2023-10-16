@@ -1,16 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PageController!{% endblock %}
+{% block title %}
+    Welcome to AcousticAlley !
+{% endblock %}
 
 {% block body %}
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/projet/symfony-project/src/Controller/PageController.php'|file_link(0) }}">src/Controller/PageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/projet/symfony-project/templates/page/index.html.twig'|file_link(0) }}">templates/page/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <section class="homepage-hero">
+        <figure class="homepage-hero__logo">
+            <img src="{{ asset('asset/media/logo/logo-hero-main-color.svg') }}" alt="" class="homepage-hero__logo-img">
+            <figcaption class="homepage-hero__caption">
+                <!-- Loop through categories and display them with thumbnails -->
+                <ul>
+                    {% for category in categories %}
+                        <li>
+                            <img src="{{ asset('asset/media/' ~ category.thumbnail) }}" alt="{{ category.name }} Thumbnail" style="width:200px">
+                            {{ category.name }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </figcaption>
+        </figure>
+    </section>
 {% endblock %}

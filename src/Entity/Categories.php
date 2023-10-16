@@ -21,6 +21,9 @@ class Categories
     #[ORM\ManyToMany(targetEntity: Products::class, mappedBy: 'c_id')]
     private Collection $products;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $thumbnail = null;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -66,6 +69,18 @@ class Categories
         if ($this->products->removeElement($product)) {
             $product->removeCId($this);
         }
+
+        return $this;
+    }
+
+    public function getThumbnail(): ?string
+    {
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail(?string $thumbnail): static
+    {
+        $this->thumbnail = $thumbnail;
 
         return $this;
     }

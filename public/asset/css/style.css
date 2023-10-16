@@ -258,10 +258,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow-x: hidden;
   scroll-behavior: smooth;
   line-height: 1.6rem;
   min-height: 100vh;
+  background-color: #F4E3DD;
 }
 
 img {
@@ -274,6 +277,12 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+li, a, p {
+  text-decoration: none;
+  list-style: none;
+  color: #F8F8F8;
 }
 
 @font-face {
@@ -405,22 +414,50 @@ button {
   position: sticky;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   top: 0;
   height: 100px;
   width: 100%;
+  padding: 10px 35px;
   background-color: #232126;
 }
-.header__nav-menu {
+.header__nav-menu .header__nav-list {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 50px;
 }
+.header__nav-menu .header__nav-list .header__nav-item .header__nav-link {
+  font-family: "Roller Coaster";
+  font-size: 1.5rem;
+}
+.header__nav-menu .header__nav-list .header__nav-item .header__nav-link:hover {
+  text-decoration: underline;
+}
+.header__icon-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.header__icon-menu .header__icon-link .header__icon-img {
+  align-self: center;
+  width: 40px;
+  height: 40px;
+}
+.header__icon-menu .header__icon-link .header__icon-img:hover {
+  transform: scale(1.2);
+}
+
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   margin-top: auto;
-  height: 150px;
+  height: 100px;
   width: 100%;
   background-color: #232126;
 }/*# sourceMappingURL=style.css.map */
