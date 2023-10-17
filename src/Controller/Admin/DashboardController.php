@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Doctrine\Common\Collections\Criteria;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,10 +24,11 @@ class DashboardController extends AbstractDashboardController
         $this->entityManager = $entityManager;
     }
 
+    // DEFAULT DASHBOARD - READ
     #[Route('/admin', name: 'admin')]
     public function dashboard(): Response
     {
-       // Fetch categories and products from the database using the injected EntityManager
+        // Fetch categories and products from the database using the injected EntityManager
         $categories = $this->entityManager->getRepository(Categories::class)->findAll();
         $products = $this->entityManager->getRepository(Products::class)->findAll();
 
@@ -37,8 +39,10 @@ class DashboardController extends AbstractDashboardController
         ]);
     }
 
+    // CREATE
     #[Route('/admin/create', name: 'create')]
-    public function create(Request $request): Response {
+    public function create(Request $request): Response
+    {
 
         $category = new Categories();
         $categoryForm = $this->createForm(CategoriesFormType::class, $category);
@@ -50,15 +54,15 @@ class DashboardController extends AbstractDashboardController
         if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
             $newCategory = $categoryForm->getData();
             $thumbnail = $categoryForm->get('thumbnail')->getData();
-            if($thumbnail) {
+            if ($thumbnail) {
                 $newFileName = uniqid() . '.' . $thumbnail->guessExtension();
 
-                try{
+                try {
                     $thumbnail->move(
                         $this->getParameter('kernel.project_dir') . '/public/asset/media/categories',
                         $newFileName
                     );
-                } catch(FileException $e) {
+                } catch (FileException $e) {
                     return new Response($e->getMessage());
                 }
 
@@ -75,15 +79,15 @@ class DashboardController extends AbstractDashboardController
         if ($productForm->isSubmitted() && $productForm->isValid()) {
             $newProduct = $productForm->getData();
             $thumbnail = $productForm->get('thumbnail')->getData();
-            if($thumbnail) {
+            if ($thumbnail) {
                 $newFileName = uniqid() . '.' . $thumbnail->guessExtension();
 
-                try{
+                try {
                     $thumbnail->move(
                         $this->getParameter('kernel.project_dir') . '/public/asset/media/products',
                         $newFileName
                     );
-                } catch(FileException $e) {
+                } catch (FileException $e) {
                     return new Response($e->getMessage());
                 }
 
@@ -101,17 +105,163 @@ class DashboardController extends AbstractDashboardController
         ]);
     }
 
+    // EDIT
     #[Route('/admin/edit/{id}', name: 'edit')]
-    public function edit($id): Response
+    public function edit($id, Request $request): Response
     {
-        // Load the entity based on the provided ID
+        //CATEGORY LOGIC
         $category = $this->entityManager->getRepository(Categories::class)->find($id);
         $categoryForm = $this->createForm(CategoriesFormType::class, $category);
-        // Handle form submission and other logic...
 
+        $categoryForm->handleRequest($request);
+
+        if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
+            $thumbnail = $categoryForm->get('thumbnail')->getData();
+
+            if ($thumbnail) {
+                $newFileName = uniqid() . '.' . $thumbnail->guessExtension();
+
+                try {
+                    $thumbnail->move(
+                        $this->getParameter('kernel.project_dir') . '/public/asset/media/categories',
+                        $newFileName
+                    );
+                } catch (FileException $e) {
+                    return new Response($e->getMessage());
+                }
+
+                $category->setThumbnail('/categories/' . $newFileName);
+            }
+
+            $category->setName($categoryForm->get('name')->getData());
+            $this->entityManager->flush();
+
+            return $this->redirectToRoute('admin');
+        }
+
+        //PRODUCT LOGIC
+        $product = $this->entityManager->getRepository(Products::class)->find($id);
+        $productForm = $this->createForm(ProductsFormType::class, $product);
+
+        $productForm->handleRequest($request);
+        if ($productForm->isSubmitted() && $productForm->isValid()) {
+            $thumbnail = $productForm->get('thumbnail')->getData();
+
+            if ($thumbnail) {
+                $newFileName = uniqid() . '.' . $thumbnail->guessExtension();
+
+                try {
+                    $thumbnail->move(
+                        $this->getParameter('kernel.project_dir') . '/public/asset/media/products',
+                        $newFileName
+                    );
+                } catch (FileException $e) {
+                    return new Response($e->getMessage());
+                }
+
+                $product->setThumbnail('/products/' . $newFileName);
+            }
+
+            $product->setName($productForm->get('name')->getData());
+            $product->setDescription($productForm->get('description')->getData());
+            $product->setPrice($productForm->get('price')->getData());
+            $product->setQuantity($productForm->get('quantity')->getData());
+
+            // Handle categories
+            $selectedCategories = $productForm->get('c_id')->getData();
+
+            // Compare the currently selected categories with the existing categories
+            $existingCategories = $product->getCId()->toArray();
+
+            // Clear existing categories if there's a change
+            if (!$this->categoriesAreEqual($selectedCategories, $existingCategories)) {
+                $product->getCId()->clear();
+            }
+
+            // Add selected categories to the product
+            foreach ($selectedCategories as $Pcategory) {
+                $product->addCId($Pcategory);
+            }
+
+            $this->entityManager->flush();
+
+            return $this->redirectToRoute('admin');
+        }
+
+        //RENDER VIEW
         return $this->render('Admin/edit.html.twig', [
             'category' => $category,
-            'categoryForm' => $categoryForm,
+            'categoryForm' => $categoryForm->createView(),
+            'product' => $product,
+            'productForm' => $productForm->createView(),
+        ]);
+    }
+    /**
+     * Compares two collections of categories to determine if they are equal.
+     *
+     * @param \Doctrine\Common\Collections\Collection|array $categoriesA
+     * @param \Doctrine\Common\Collections\Collection|array $categoriesB
+     *
+     * @return bool
+     */
+    private function categoriesAreEqual($categoriesA, $categoriesB)
+    {
+        // Convert to arrays if they are not already
+        if (!$categoriesA instanceof \Doctrine\Common\Collections\Collection) {
+            $categoriesA = is_array($categoriesA) ? $categoriesA : [];
+        } else {
+            $categoriesA = $categoriesA->toArray();
+        }
+
+        if (!$categoriesB instanceof \Doctrine\Common\Collections\Collection) {
+            $categoriesB = is_array($categoriesB) ? $categoriesB : [];
+        } else {
+            $categoriesB = $categoriesB->toArray();
+        }
+
+        // Use array_map to extract the IDs
+        $categoryIdsA = array_map(function ($category) {
+            return $category->getId();
+        }, $categoriesA);
+
+        $categoryIdsB = array_map(function ($category) {
+            return $category->getId();
+        }, $categoriesB);
+
+        // Sort the arrays to ensure order doesn't affect the comparison
+        sort($categoryIdsA);
+        sort($categoryIdsB);
+
+        // Compare the sorted arrays
+        return $categoryIdsA == $categoryIdsB;
+    }
+
+    // DELETE
+    #[Route('/admin/delete/{id}', methods: ['GET', 'DELETE'], name: 'delete')]
+    public function delete($id): Response
+    {
+        // Check if it's a category
+        $category = $this->entityManager->getRepository(Categories::class)->find($id);
+        if ($category) {
+            $this->entityManager->remove($category);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('admin');
+        }
+
+        // Check if it's a product
+        $product = $this->entityManager->getRepository(Products::class)->find($id);
+        if ($product) {
+            $this->entityManager->remove($product);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('admin');
+        }
+
+        // If neither a category nor a product was found, handle the error (e.g., show an error message or redirect to an error page).
+        // You can customize this part based on your requirements.
+
+        // Example: Show an error message
+        return $this->render('Admin/error.html.twig', [
+            'message' => 'Item not found.'
         ]);
     }
 }
