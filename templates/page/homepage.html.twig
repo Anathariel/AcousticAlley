@@ -10,14 +10,6 @@
             <img src="{{ asset('asset/media/logo/logo-hero-main-color.svg') }}" alt="" class="homepage-hero__logo-img">
             <figcaption class="homepage-hero__caption">
                 <!-- Loop through categories and display them with thumbnails -->
-                <ul>
-                    {% for category in categories %}
-                        <li>
-                            <img src="{{ asset('asset/media/' ~ category.thumbnail) }}" alt="{{ category.name }} Thumbnail" style="width:200px">
-                            {{ category.name }}
-                        </li>
-                    {% endfor %}
-                </ul>
             </figcaption>
         </figure>
     </section>

@@ -84,4 +84,9 @@ class Categories
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->name; // Replace "name" with the actual property you want to display
+    }
 }

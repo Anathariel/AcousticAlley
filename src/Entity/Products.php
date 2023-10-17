@@ -34,6 +34,9 @@ class Products
     #[ORM\OneToMany(mappedBy: 'p_id', targetEntity: OrderLine::class)]
     private Collection $orderLines;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $thumbnail = null;
+
     public function __construct()
     {
         $this->c_id = new ArrayCollection();
@@ -143,6 +146,23 @@ class Products
                 $orderLine->setPId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name; // Assuming 'name' is a property in the Products entity
+    }
+
+    public function getThumbnail(): ?string
+    {
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail(?string $thumbnail): static
+    {
+        $this->thumbnail = $thumbnail;
 
         return $this;
     }

@@ -1,1 +1,30 @@
+{% block body %}
 <h1>Admin Side</h1>
+<a href="{{ path('create') }}">Create</a>
+
+<!-- List of Categories -->
+<h2>Categories:</h2>
+<ul>
+    {% for category in categories %}
+        <li>
+            <input type="hidden" value="{{ category.id }}">
+            <img src="{{ asset('asset/media/' ~ category.thumbnail) }}" alt="{{ category.name }} Thumbnail" style="width: 200px">
+            {{ category.name }}
+            <a href="{{ path('edit', {'id': category.id}) }}">Edit</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<!-- List of Products -->
+<h2>Products:</h2>
+<ul>
+    {% for product in products %}
+        <li>
+            <input type="hidden" value="{{ product.id }}">
+            <img src="{{ asset('asset/media/' ~ product.thumbnail) }}" alt="{{ product.name }} Thumbnail" style="width: 200px">
+            {{ product.name }}
+            <a href="{{ path('edit', {'id': product.id}) }}">Edit</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
