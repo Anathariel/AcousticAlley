@@ -1,6 +1,5 @@
 <?php
 
-// src/Controller/Admin/CategoriesCrudController.php
 namespace App\Controller\Admin;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -22,7 +21,7 @@ class CategoriesCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
-            ImageField::new('thumbnail')->setUploadDir('public/uploads/images/categories')->hideOnIndex(),
+            ImageField::new('thumbnail')->setUploadDir('public/asset/media/categories')->hideOnIndex(),
             AssociationField::new('products')->autocomplete(),
         ];
     }

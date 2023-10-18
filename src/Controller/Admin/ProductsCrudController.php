@@ -10,8 +10,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 
 class ProductsCrudController extends AbstractCrudController
 {
@@ -41,6 +41,7 @@ class ProductsCrudController extends AbstractCrudController
             MoneyField::new('price')->setCurrency('USD'),
             IntegerField::new('quantity'),
             AssociationField::new('c_id')->autocomplete(),
+            ImageField::new('thumbnail')->setUploadDir('public/asset/media/products')->hideOnIndex(),
         ];
     }
 }

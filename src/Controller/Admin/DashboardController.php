@@ -2,16 +2,14 @@
 
 namespace App\Controller\Admin;
 
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Categories;
 use App\Entity\Products;
 use App\Form\CategoriesFormType;
 use App\Form\ProductsFormType;
 use Doctrine\ORM\EntityManagerInterface;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use Doctrine\Common\Collections\Criteria;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,9 +22,9 @@ class DashboardController extends AbstractDashboardController
         $this->entityManager = $entityManager;
     }
 
-    // DEFAULT DASHBOARD - READ
-    #[Route('/admin', name: 'admin')]
-    public function dashboard(): Response
+    // DEFAULT ADMIN DASHBOARD - READ
+    #[Route('/admin', name: 'admin_dashboard')]
+    public function admin_dashboard(): Response
     {
         // Fetch categories and products from the database using the injected EntityManager
         $categories = $this->entityManager->getRepository(Categories::class)->findAll();
@@ -38,6 +36,30 @@ class DashboardController extends AbstractDashboardController
             'products' => $products,
         ]);
     }
+
+    // DEFAULT USER DASHBOARD - READ
+    #[Route('/dashboard', name: 'user_dashboard')]
+    public function user_dashboard(): Response
+    {
+        /** @var UserInterface $user */
+        $user = $this->getUser();
+
+        // Check if the user is logged in
+        if ($user instanceof UserInterface) {
+            $firstName = $user->getFirstname();
+        } else {
+            // Handle the case when the user is not logged in
+            $firstName = null;
+        }
+
+        // Render the template
+        return $this->render('Users/dashboard.html.twig', [
+            'firstName' => $firstName,
+        ]);
+    }
+
+
+    // ----------- ADMIN SIDE CRUD CONTROLS ----------- //
 
     // CREATE
     #[Route('/admin/create', name: 'create')]
@@ -255,13 +277,5 @@ class DashboardController extends AbstractDashboardController
             $this->entityManager->flush();
             return $this->redirectToRoute('admin');
         }
-
-        // If neither a category nor a product was found, handle the error (e.g., show an error message or redirect to an error page).
-        // You can customize this part based on your requirements.
-
-        // Example: Show an error message
-        return $this->render('Admin/error.html.twig', [
-            'message' => 'Item not found.'
-        ]);
     }
 }

@@ -1,6 +1,6 @@
 <header class="header">
     <figure class="header__figure-logo">
-    <a href="{{ path('app_homepage') }}">
+    <a href="{{ path('homepage') }}">
         <img src="{{ asset('asset/media/logo/logo-full-light.svg') }}" alt="" class="header__figure-logo-img">
     </a>
     </figure>
@@ -8,7 +8,7 @@
     <nav class="header__nav-menu">
         <ul class="header__nav-list">
             <li class="header__nav-item">
-                <a href="{{ path('app_homepage') }}" class="header__nav-link"> Home </a>
+                <a href="{{ path('homepage') }}" class="header__nav-link"> Home </a>
             </li>
             <li class="header__nav-item">
                 <a href="" class="header__nav-link"> Catalogue </a>
@@ -23,9 +23,21 @@
     </nav>
 
     <figure class="header__icon-menu">
-        <a href="{{ path('app_login') }}" class="header__icon-link">
-            <img src="{{ asset('asset/media/icons/user-icon.svg') }}" alt="" class="header__icon-img">
-        </a>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('admin_dashboard') }}" class="header__icon-link">
+                    <img src="{{ asset('asset/media/icons/user-icon.svg') }}" alt="" class="header__icon-img">
+                </a>
+            {% else %}
+                <a href="{{ path('user_dashboard') }}" class="header__icon-link">
+                    <img src="{{ asset('asset/media/icons/user-icon.svg') }}" alt="" class="header__icon-img">
+                </a>
+            {% endif %}
+        {% else %}
+            <a href="{{ path('login') }}" class="header__icon-link">
+                <img src="{{ asset('asset/media/icons/user-icon.svg') }}" alt="" class="header__icon-img">
+            </a>
+        {% endif %}
         <a href="" class="header__icon-link">
             <img src="{{ asset('asset/media/icons/cart-icon.svg') }}" alt="" class="header__icon-img">
         </a>
