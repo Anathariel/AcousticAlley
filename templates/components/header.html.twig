@@ -25,11 +25,11 @@
     <figure class="header__icon-menu">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('admin_dashboard') }}" class="header__icon-link">
+                <a href="{{ path('admin') }}" class="header__icon-link">
                     <img src="{{ asset('asset/media/icons/user-icon.svg') }}" alt="" class="header__icon-img">
                 </a>
             {% else %}
-                <a href="{{ path('user_dashboard') }}" class="header__icon-link">
+                <a href="" class="header__icon-link">
                     <img src="{{ asset('asset/media/icons/user-icon.svg') }}" alt="" class="header__icon-img">
                 </a>
             {% endif %}

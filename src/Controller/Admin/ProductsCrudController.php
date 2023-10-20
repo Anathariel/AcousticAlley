@@ -3,15 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Products;
+use App\Entity\Categories;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
 class ProductsCrudController extends AbstractCrudController
 {
@@ -20,28 +19,21 @@ class ProductsCrudController extends AbstractCrudController
         return Products::class;
     }
 
-    public function configureCrud(Crud $crud): Crud
-    {
-        return $crud
-            ->setDefaultSort(['id' => 'DESC'])
-            ->setEntityLabelInSingular('Product')
-            ->setEntityLabelInPlural('Products')
-            ->setSearchFields(['name'])
-            ->overrideTemplate('crud/detail', 'admin/product/detail.html.twig')
-            ->overrideTemplate('crud/index', 'admin/product/index.html.twig')
-            ->addFormTheme('@EasyAdmin/form/bootstrap_4.html.twig');
-    }
-
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
+            IdField::new('id')
+            ->onlyOnIndex(),
             TextField::new('name'),
+            NumberField::new('price'),
+            NumberField::new('quantity'),
             TextEditorField::new('description'),
-            MoneyField::new('price')->setCurrency('USD'),
-            IntegerField::new('quantity'),
-            AssociationField::new('c_id')->autocomplete(),
-            ImageField::new('thumbnail')->setUploadDir('public/asset/media/products')->hideOnIndex(),
+            ImageField::new('thumbnail')
+            ->setBasePath('asset/media/products')
+            ->setUploadDir('public/asset/media/products'),
+            AssociationField::new('c_id')
+                ->setRequired(true),
         ];
     }
 }
